@@ -2098,8 +2098,12 @@
         } else {
             document.getElementById("submit_private").disabled = true;
         }
-
     }
+
+    // Ensure the function is also triggered when the user pastes
+	document.getElementById("formPhrase").addEventListener('paste', function () {
+		setTimeout(() => countWords(this), 0);
+	});
 
 </script>
 
